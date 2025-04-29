@@ -5,9 +5,9 @@ pipeline {
         stage('Build') {
             steps {
                 bat 'echo Building...'
-            }
+                bat 'python train_model.py'
+             }
         }
-
         stage('Stop Old Container') {
             steps {
                 bat 'docker stop laptop-price-prediction || exit 0'
