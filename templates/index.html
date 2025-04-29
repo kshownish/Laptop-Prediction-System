@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Laptop Price Predictor</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 50px; }
+        h2 { color: #333; }
+        form { margin-top: 20px; }
+        label { display: inline-block; width: 100px; }
+        select, input[type="submit"] { padding: 5px; margin: 5px; }
+        h3 { color: #0066cc; }
+    </style>
+</head>
+<body>
+    <h2>Laptop Price Predictor</h2>
+    <form method="POST">
+        <label>Company:</label>
+        <select name="company">
+            {% for c in companies %}
+            <option value="{{ c }}">{{ c }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label>CPU:</label>
+        <select name="cpu">
+            {% for c in cpus %}
+            <option value="{{ c }}">{{ c }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label>RAM:</label>
+        <select name="ram">
+            {% for r in rams %}
+            <option value="{{ r }}">{{ r }}</option>
+            {% endfor %}
+        </select><br>
+
+        <input type="submit" value="Predict Price">
+    </form>
+
+    {% if price %}
+        <h3>Predicted Price: ${{ price }}</h3>
+    {% endif %}
+</body>
+</html>
