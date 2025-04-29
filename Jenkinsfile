@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 bat 'echo Building...'
-                bat 'python train_model.py'
+                bat 'py train_model.py'
              }
         }
         stage('Stop Old Container') {
