@@ -5,9 +5,10 @@ pipeline {
         stage('Build') {
             steps {
                 bat 'echo Building...'
-                bat 'py train_model.py'
-             }
+                bat '"C:\\Users\\kshow\\AppData\\Local\\Programs\\Python\\Python39\\python.exe" train_model.py'
+            }
         }
+
         stage('Stop Old Container') {
             steps {
                 bat 'docker stop laptop-price-prediction || exit 0'
