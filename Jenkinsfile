@@ -1,13 +1,12 @@
 pipeline {
     agent any
     triggers {
-    pollSCM('* * * * *') // Check GitHub every 5 minutes
-}
+        pollSCM('* * * * * % 10') // Check every 10 seconds
+    }
     stages {
         stage('Build') {
             steps {
                 bat 'echo Building... Skipping train_model.py as df.pkl and pipe.pkl are included.'
-                // bat 'venv\\Scripts\\activate && py train_model.py' // Commented out
             }
         }
         stage('Stop Old Container') {
